@@ -1,0 +1,21 @@
+[
+  {
+    "id": "notice-001",
+    "title": "위원 모집 공고",
+    "date": "2025-07-30",
+    "isNew": true
+  },
+  {
+    "id": "notice-002",
+    "title": "2차 미팅 일정 안내",
+    "date": "2025-08-07",
+    "isNew": false,
+    "note": "예정"
+  },
+  {
+    "id": "notice-003",
+    "title": "카카오톡 단톡방 개설",
+    "date": "2025-07-19",
+    "isNew": false
+  }
+]
