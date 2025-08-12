@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>광진구청 재건축 미팅 결과</title>
+    
+    <!-- 👇 여기에 카드뉴스 메타태그들을 추가 -->
+    <meta name="card-title" content="광진구청 재건축 미팅 결과">
+    <meta name="card-description" content="광진구청 담당 부서와의 재건축 관련 미팅 주요 내용">
+    <meta name="card-date" content="2025-08-11">
+    <meta name="card-category" content="미팅">
+    <!-- 👆 여기까지 -->
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+        
+        .card-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            background: #f8f9fa;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            font-size: 15px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+            font-size: 15px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #3498db;
+            margin-right: 10px;
+            min-width: 60px;
+        }
+        
+        .phase-box {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .date-box {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .meeting-info {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #155724;
+        }
+        
+        .meeting-detail {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+            font-weight: bold;
+        }
+        
+        .emoji {
+            font-size: 60px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .cta {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .nav-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <button class="nav-btn" onclick="scrollToCard(0)">미팅개요</button>
+            <button class="nav-btn" onclick="scrollToCard(2)">사업성</button>
+            <button class="nav-btn" onclick="scrollToCard(4)">안전진단</button>
+            <button class="nav-btn" onclick="scrollToCard(6)">다음단계</button>
+        </div>
+
+        <!-- 카드 1: 미팅 개요 -->
+        <div class="card" id="card-0">
+            <div class="card-number">1</div>
+            <div class="emoji">🏛️</div>
+            <div class="title">광진구청 담당부서와 재건축<br>관련 미팅 완료</div>
+            <div class="date-box">
+                2025년 8월 11일 (화)<br>
+                14:00 ~ 14:30
+            </div>
+            <div class="content">
+                진구청 담당 부서와<br>
+                <span class="highlight">재건축에 대한 의견</span>을 나누고<br>
+                담당 공무원과 첫 인사를 나눴습니다.
+            </div>
+        </div>
+
+        <!-- 카드 2: 미팅 목적 -->
+        <div class="card" id="card-1">
+            <div class="card-number">2</div>
+            <div class="emoji">🤝</div>
+            <div class="title">미팅 목적</div>
+            <div class="content">
+                광진구청 담당 부서와<br>
+                <span class="highlight">재건축에 대해 의견을 나누고</span><br>
+                정비구역 관련 구청의 계획을 파악했습니다.<br><br>
+                또한 담당 공무원과 첫 인사를 나누어<br>
+                앞으로의 재건축 추진 시<br>
+                <span class="highlight">원활한 소통 기반</span>을<br>
+                마련하기 위한 미팅이었습니다.
+            </div>
+        </div>
+
+        <!-- 카드 3: 재건축 대상 확인 -->
+        <div class="card" id="card-2">
+            <div class="card-number">3</div>
+            <div class="emoji">✅</div>
+            <div class="title">재건축 대상<br>확인 완료</div>
+            <div class="phase-box">
+                준공 30년 이상, 581세대
+            </div>
+            <div class="content">
+                광장현대 5단지는<br>
+                <span class="highlight">재건축 대상임을 공식 확인</span><br><br>
+                구청에서 재건축 추진에 대한<br>
+                기본적인 조건을 충족함을<br>
+                명확히 확인받았습니다.
+            </div>
+        </div>
+
+        <!-- 카드 4: 사업성 관련 -->
+        <div class="card" id="card-3">
+            <div class="card-number">4</div>
+            <div class="emoji">📊</div>
+            <div class="title">용적률 & 사업성<br>관련 조언</div>
+            <div class="content">
+                현재 용적률 230% 수준에서<br>
+                <span class="highlight">용적률 300% 확보 시에도</span><br>
+                임대 등을 고려했을 때<br><br>
+                <span class="highlight">사업성을 신중히 검토</span>할<br>
+                필요가 있다는 조언을<br>
+                받았습니다.
+            </div>
+        </div>
+
+        <!-- 카드 5: 안전진단 관련 -->
+        <div class="card" id="card-4">
+            <div class="card-number">5</div>
+            <div class="emoji">🔍</div>
+            <div class="title">안전진단 관련<br>변경사항</div>
+            <div class="phase-box">
+                관련 규정 변경
+            </div>
+            <div class="content">
+                <span class="highlight">사업시행계획인가 전에만<br>
+                안전진단 실행</span><br><br>
+                기존보다 안전진단 시점이<br>
+                뒤로 미뤄져서<br>
+                초기 추진이 더 용이해졌습니다.
+            </div>
+        </div>
+
+        <!-- 카드 6: 기타 중요사항
+        <div class="card" id="card-5">
+            <div class="card-number">6</div>
+            <div class="emoji">📋</div>
+            <div class="title">기타 중요사항</div>
+            <div class="content">
+                광장현대 5단지 관련<br>
+                <span class="highlight">구청의 구체적인 정비계획</span>은<br>
+                아직 없는 상황<br><br>
+                앞으로 재건축 추진 시<br>
+                구청과의 지속적인 소통을 통해<br>
+                원활한 진행을 도모하겠습니다.
+            </div>
+        </div> -->
+
+        <!-- 카드 7: 다음 단계 -->
+        <div class="card" id="card-5">
+            <div class="card-number">6</div>
+            <div class="emoji">🎯</div>
+            <div class="title">다음 추진 단계</div>
+            <div class="content">
+                구청 미팅을 바탕으로<br>
+                <span class="highlight">도시계획업체들과의<br>
+                사전 미팅</span>을 진행하여<br><br>
+                재건축 사업의 타당성과<br>
+                추진 방향을 구체적으로<br>
+                검토해나갈 예정입니다.
+            </div>
+        </div>
+
+        <!-- 카드 8: 마무리 -->
+        <div class="card" id="card-6">
+            <div class="card-number">7</div>
+            <div class="emoji">🚀</div>
+            <div class="title">체계적 추진을 위한<br>중요한 한 걸음</div>
+            <div class="content">
+                구청과의 첫 미팅을 통해<br>
+                <span class="highlight">공식적인 소통 채널</span>을<br>
+                구축했습니다.<br><br>
+                앞으로도 단계별로<br>
+                체계적이고 투명하게<br>
+                재건축을 추진해나가겠습니다.<br><br>
+                <strong>주민 여러분의 지속적인<br>
+                관심과 참여 부탁드립니다!</strong>
+            </div>
+            <div class="cta">
+                광장현대 5단지 재건축 추진준비위원회<br>
+                함께 성공적인 재건축을 만들어가요!<br>
+                <a href="https://open.kakao.com/o/gmh0czHh" style="display: inline-block; background: #FEE500; color: #3C1E1E; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+                    💬 카카오톡 단톡방 참여하기
+                </a>
+                <a href="https://gjh5th.site/" style="display: inline-block; background: #3498db; color: white; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; margin-left: 10px;">
+                    🏠 홈으로 이동
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToCard(index) {
+            const card = document.getElementById(`card-${index}`);
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 네비게이션 버튼 활성화
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // 스크롤에 따른 네비게이션 업데이트
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            
+            let current = 0;
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    if (index <= 1) current = 0;
+                    else if (index <= 3) current = 1;
+                    else if (index <= 4) current = 2;
+                    else current = 3;
+                }
+            });
+            
+            navButtons.forEach((btn, index) => {
+                btn.classList.toggle('active', index === current);
+            });
+        });
+    </script>
+</body>
+</html>

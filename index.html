@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>광장현대 5단지 재건축 추진준비위원회</title>
+    <meta name="description" content="광장현대 5단지 재건축 추진준비위원회 공식 홈페이지">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-gradient);
+            min-height: 100vh;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 영역 */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.85;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cta-primary {
+            background: #FEE500;
+            color: #3C1E1E;
+        }
+
+        .cta-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* 현재 상황 요약 */
+        .status-banner {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .status-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #FFE066;
+        }
+
+        .status-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* 메인 콘텐츠 그리드 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* 최신 카드뉴스 섹션 */
+        .section-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .news-category {
+            display: inline-block;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .category-재건축 { background: linear-gradient(135deg, #3498db, #5dade2); }
+        .category-공지사항 { background: linear-gradient(135deg, #e74c3c, #ec7063); }
+        .category-알아두기 { background: linear-gradient(135deg, #f39c12, #f7dc6f); }
+        .category-미팅 { background: linear-gradient(135deg, #9b59b6, #af7ac5); }
+        .category-FAQ { background: linear-gradient(135deg, #27ae60, #58d68d); }
+
+        .news-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+
+        .news-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 사이드바 위젯들 */
+        .widget {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        /* 진행 상황 위젯 */
+        .progress-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .progress-item:last-child {
+            border-bottom: none;
+        }
+
+        .progress-label {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .progress-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-progress {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .status-complete {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .status-pending {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .status-hold {
+            background: #e67e22;
+            color: white;
+        }
+
+        .status-cancelled {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* 빠른 링크 위젯 */
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .quick-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .quick-link-icon {
+            font-size: 20px;
+        }
+
+        /* 공지사항 위젯 */
+        .notice-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: var(--transition);
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 5px;
+            border-radius: 8px;
+        }
+
+        .notice-item[style*="cursor: pointer"]:hover {
+            transform: translateX(3px);
+        }
+
+        .notice-title {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .notice-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .notice-new {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            margin-left: 8px;
+        }
+
+        /* 하단 버튼 */
+        .bottom-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .view-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .hero-section {
+                padding: 40px 0;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 히어로 섹션 -->
+        <section class="hero-section">
+            <h1 class="hero-title">🏠 광장현대 5단지</h1>
+            <h2 class="hero-subtitle">재건축 추진준비위원회</h2>
+            <p class="hero-description">
+                30년이 지난 우리 아파트, 새로운 시작을 준비합니다.<br>
+                체계적이고 투명한 재건축 추진을 위해 함께 해주세요.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://open.kakao.com/o/gmh0czHh" class="cta-btn cta-primary" target="_blank">
+                    💬 카카오톡 단톡방 참여
+                </a>
+                <a href="#latest-news" class="cta-btn cta-secondary">
+                    📄 최신 소식 보기
+                </a>
+            </div>
+        </section>
+
+        <!-- 현재 상황 요약 -->
+        <div class="status-banner">
+            <div class="status-title">📍 현재 진행 상황</div>
+            <div class="status-content">
+                공식적인 재건축 추진준비위원회을 모집하고 있습니다.<br>
+                소유주분들의 관심과 참여로 체계적인 재건축 추진이 가능합니다.
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 그리드 -->
+        <div class="main-grid">
+            <!-- 메인 콘텐츠 -->
+            <div class="main-content">
+                <!-- 최신 카드뉴스 -->
+                <section class="section-card" id="latest-news">
+                    <h2 class="section-title">
+                        📰 최신 카드뉴스
+                    </h2>
+                    <div id="loading-news" class="loading">
+                        📄 카드뉴스를 불러오는 중...
+                    </div>
+                    <div class="news-grid" id="news-grid">
+                        <!-- 카드뉴스가 동적으로 삽입됩니다 -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- 사이드바 -->
+            <div class="sidebar">
+                <!-- 진행 상황 위젯 -->
+                <div class="widget">
+                    <h3 class="widget-title">📊 진행 상황</h3>
+                    <div id="loading-progress" class="loading" style="font-size: 14px; padding: 20px; color: #666;">
+                        📊 진행 상황을 불러오는 중...
+                    </div>
+                    <div id="progress-container">
+                        <!-- 진행 상황이 동적으로 삽입됩니다 -->
+                    </div>
+                </div>
+
+                <!-- 빠른 링크 위젯 -->
+                <div class="widget">
+                    <h3 class="widget-title">🔗 빠른 링크</h3>
+                    <div class="quick-links">
+                        <a href="timeline.html" class="quick-link">
+                            <span class="quick-link-icon">📅</span>
+                            <span>활동 타임라인</span>
+                        </a>
+                        <a href="news.html" class="quick-link">
+                            <span class="quick-link-icon">📰</span>
+                            <span>전체 카드뉴스</span>
+                        </a>
+                        <a href="https://open.kakao.com/o/gmh0czHh" class="quick-link" target="_blank">
+                            <span class="quick-link-icon">💬</span>
+                            <span>카카오톡 단톡방</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 공지사항 위젯 -->
+                <div class="widget">
+                    <h3 class="widget-title">📢 공지사항</h3>
+                    <div id="loading-notices" class="loading" style="font-size: 14px; padding: 20px; color: #666;">
+                        📢 공지사항을 불러오는 중...
+                    </div>
+                    <div id="notices-container">
+                        <!-- 공지사항이 동적으로 삽입됩니다 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 CTA -->
+        <div class="bottom-cta">
+            <a href="news.html" class="view-all-btn">
+                📄 모든 카드뉴스 보기
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 최신 카드뉴스 로드 함수
+        async function loadLatestNews() {
+            const loadingEl = document.getElementById('loading-news');
+            const newsGrid = document.getElementById('news-grid');
+            
+            try {
+                const response = await fetch('data/news-list.json');
+                if (!response.ok) {
+                    throw new Error('카드뉴스 목록을 불러올 수 없습니다.');
+                }
+                
+                const allNews = await response.json();
+                
+                // 날짜순 정렬 후 최신 4개만 선택
+                const latestNews = allNews
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .slice(0, 4);
+                
+                // 카드뉴스 렌더링
+                newsGrid.innerHTML = latestNews.map(news => createNewsCard(news)).join('');
+                
+                // 카드 클릭 이벤트 추가
+                const newsCards = newsGrid.querySelectorAll('.news-card');
+                newsCards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        const newsItem = latestNews[index];
+                        window.open(newsItem.filename, '_blank');
+                    });
+                });
+                
+            } catch (error) {
+                console.error('Error loading latest news:', error);
+                
+                // 샘플 데이터로 폴백
+                const sampleNews = [
+                    {
+                        id: "card-001",
+                        title: "재건축 추진준비위원회 위원 모집 공고",
+                        description: "광장현대 5단지 재건축 추진준비위원회 위원을 모집합니다",
+                        category: "공지사항",
+                        date: "2025-07-30",
+                        filename: "news/20250730_card_01.html"
+                    },
+                    {
+                        id: "card-002",
+                        title: "재건축 동의 vs 투표 완벽 가이드",
+                        description: "재건축 동의와 투표의 차이점과 전자시스템 허용 일정",
+                        category: "알아두기",
+                        date: "2025-07-25",
+                        filename: "news/20250725_card_01.html"
+                    },
+                    {
+                        id: "card-003", 
+                        title: "임시 준비위원회 추진 계획",
+                        description: "임시 준비위원회에서 공식 추진위원회까지의 로드맵",
+                        category: "재건축",
+                        date: "2025-07-21",
+                        filename: "news/20250721_card_01.html"
+                    },
+                    {
+                        id: "card-004",
+                        title: "재건축 추진 준비위원회 시작",
+                        description: "재건축 추진 준비위원회가 시작됩니다",
+                        category: "재건축",
+                        date: "2025-07-19",
+                        filename: "news/20250719_card_01.html"
+                    }
+                ];
+                
+                newsGrid.innerHTML = sampleNews.map(news => createNewsCard(news)).join('');
+                
+                // 샘플 데이터 클릭 이벤트
+                const newsCards = newsGrid.querySelectorAll('.news-card');
+                newsCards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        const newsItem = sampleNews[index];
+                        window.open(newsItem.filename, '_blank');
+                    });
+                });
+                
+                console.log('샘플 데이터로 카드뉴스를 표시했습니다.');
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        // 공지사항 로드 함수 (카드뉴스에서 공지사항 카테고리만 필터링)
+        async function loadNotices() {
+            const loadingEl = document.getElementById('loading-notices');
+            const noticesContainer = document.getElementById('notices-container');
+            
+            try {
+                const response = await fetch('data/news-list.json');
+                if (!response.ok) {
+                    throw new Error('카드뉴스 목록을 불러올 수 없습니다.');
+                }
+                
+                const allNews = await response.json();
+                
+                // "공지사항" 카테고리만 필터링하고 날짜순 정렬
+                const notices = allNews
+                    .filter(news => news.category === '공지사항')
+                    .sort((a, b) => new Date(b.date) - new Date(a.date))
+                    .slice(0, 3); // 최대 3개만 표시
+                
+                // 공지사항 렌더링
+                if (notices.length > 0) {
+                    noticesContainer.innerHTML = notices
+                        .map(notice => createNoticeFromNews(notice))
+                        .join('');
+                    
+                    // 클릭 이벤트 추가
+                    const noticeItems = noticesContainer.querySelectorAll('.notice-item');
+                    noticeItems.forEach((item, index) => {
+                        item.addEventListener('click', () => {
+                            window.open(notices[index].filename, '_blank');
+                        });
+                    });
+                } else {
+                    // 공지사항이 없으면 샘플 데이터로 표시
+                    const sampleNotices = [
+                        {
+                            title: "위원 모집 공고",
+                            date: "2025-07-30",
+                            filename: "news/20250730_card_01.html",
+                            isNew: true
+                        }
+                    ];
+                    
+                    noticesContainer.innerHTML = sampleNotices
+                        .map(notice => createNoticeFromNews(notice))
+                        .join('');
+                    
+                    // 샘플 데이터 클릭 이벤트
+                    const noticeItems = noticesContainer.querySelectorAll('.notice-item');
+                    noticeItems.forEach((item, index) => {
+                        item.addEventListener('click', () => {
+                            window.open(sampleNotices[index].filename, '_blank');
+                        });
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Error loading notices:', error);
+                
+                // 오류 시 샘플 데이터로 폴백
+                const sampleNotices = [
+                    {
+                        title: "위원 모집 공고",
+                        date: "2025-07-30",
+                        filename: "news/20250730_card_01.html",
+                        isNew: true
+                    },
+                    {
+                        title: "2차 미팅 일정 안내",
+                        date: "2025-08-07",
+                        filename: "#",
+                        note: "예정"
+                    }
+                ];
+                
+                noticesContainer.innerHTML = sampleNotices
+                    .map(notice => createNoticeFromNews(notice))
+                    .join('');
+                
+                // 샘플 데이터 클릭 이벤트
+                const noticeItems = noticesContainer.querySelectorAll('.notice-item');
+                noticeItems.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        if (sampleNotices[index].filename !== '#') {
+                            window.open(sampleNotices[index].filename, '_blank');
+                        }
+                    });
+                });
+                
+                console.log('샘플 데이터로 공지사항을 표시했습니다.');
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        // 카드뉴스 카드 생성 함수
+        function createNewsCard(news) {
+            const formattedDate = formatDate(news.date);
+            const categoryClass = `category-${news.category.replace(/\s+/g, '')}`;
+            
+            return `
+                <div class="news-card">
+                    <div class="news-category ${categoryClass}">${news.category}</div>
+                    <h3 class="news-title">${news.title}</h3>
+                    <p class="news-description">${news.description}</p>
+                    <div class="news-date">${formattedDate}</div>
+                </div>
+            `;
+        }
+
+        // 카드뉴스에서 공지사항 HTML 생성 함수
+        function createNoticeFromNews(newsItem) {
+            const formattedDate = formatDate(newsItem.date, 'short');
+            const isNew = isRecentNews(newsItem.date); // 3일 이내면 NEW 표시
+            const noteText = newsItem.note ? ` ${newsItem.note}` : '';
+            
+            return `
+                <div class="notice-item" style="cursor: pointer;">
+                    <div class="notice-title">
+                        ${newsItem.title}
+                        ${isNew ? '<span class="notice-new">NEW</span>' : ''}
+                    </div>
+                    <div class="notice-date">${formattedDate}${noteText}</div>
+                </div>
+            `;
+        }
+
+        // 진행 상황 로드 함수
+        async function loadProgress() {
+            const loadingEl = document.getElementById('loading-progress');
+            const progressContainer = document.getElementById('progress-container');
+            
+            try {
+                const response = await fetch('data/progress.json');
+                if (!response.ok) {
+                    throw new Error('진행 상황을 불러올 수 없습니다.');
+                }
+                
+                const progressData = await response.json();
+                
+                // 순서대로 정렬
+                const sortedProgress = progressData.sort((a, b) => a.order - b.order);
+                
+                // 진행 상황 렌더링
+                progressContainer.innerHTML = sortedProgress
+                    .map(item => createProgressHTML(item))
+                    .join('');
+                
+            } catch (error) {
+                console.error('Error loading progress:', error);
+                
+                // 오류 시 샘플 데이터로 폴백
+                const sampleProgress = [
+                    {
+                        label: "임시 준비위원회 구성",
+                        status: "complete"
+                    },
+                    {
+                        label: "위원 모집", 
+                        status: "progress"
+                    },
+                    {
+                        label: "입대의 협의",
+                        status: "pending"
+                    },
+                    {
+                        label: "전문 자료 수집",
+                        status: "pending"
+                    }
+                ];
+                
+                progressContainer.innerHTML = sampleProgress
+                    .map(item => createProgressHTML(item))
+                    .join('');
+                
+                console.log('샘플 데이터로 진행 상황을 표시했습니다.');
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        // 진행 상황 HTML 생성 함수
+        function createProgressHTML(item) {
+            const statusConfig = {
+                'complete': { class: 'status-complete', text: '완료' },
+                'progress': { class: 'status-progress', text: '진행중' },
+                'pending': { class: 'status-pending', text: '예정' },
+                'hold': { class: 'status-hold', text: '보류' },
+                'cancelled': { class: 'status-cancelled', text: '취소' }
+            };
+            
+            const config = statusConfig[item.status] || statusConfig['pending'];
+            
+            return `
+                <div class="progress-item" title="${item.description || ''}">
+                    <span class="progress-label">${item.label}</span>
+                    <span class="progress-status ${config.class}">${config.text}</span>
+                </div>
+            `;
+        }
+
+        // 날짜 포맷팅 함수
+        function formatDate(dateString, format = 'long') {
+            const date = new Date(dateString);
+            
+            if (format === 'short') {
+                return date.toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                }).replace(/\. /g, '.').replace('.', '');
+            }
+            
+            return date.toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // 최근 뉴스인지 확인하는 함수 (3일 이내면 NEW)
+        function isRecentNews(dateString) {
+            const newsDate = new Date(dateString);
+            const now = new Date();
+            const diffTime = Math.abs(now - newsDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 3;
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLatestNews();
+            loadNotices();
+            loadProgress();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>활동 타임라인 - 광장현대 5단지 재건축</title>
+    <meta name="description" content="광장현대 5단지 재건축 추진 활동의 시간순 기록">
+    <meta property="og:title" content="광장현대 5단지 재건축 활동 타임라인">
+    <meta property="og:description" content="재건축 추진 과정의 모든 활동을 시간순으로 확인하세요">
+    <meta property="og:type" content="website">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --coordination-color: #9b59b6; /* 협의용 색상 추가 */
+            --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --border-radius: 15px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-gradient);
+            min-height: 100vh;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 필터 및 검색 */
+        .filter-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: var(--transition);
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E") no-repeat right 15px center;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* 타임라인 */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 80px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 14px;
+            top: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        /* 마커 색상 정의 추가 */
+        .timeline-marker.회의 { background: linear-gradient(135deg, #3498db, #5dade2); color: white; }
+        .timeline-marker.미팅 { background: linear-gradient(135deg, #f39c12, #f7dc6f); color: white; }
+        .timeline-marker.공지 { background: linear-gradient(135deg, #e74c3c, #ec7063); color: white; }
+        .timeline-marker.조사 { background: linear-gradient(135deg, #27ae60, #58d68d); color: white; }
+        .timeline-marker.협의 { background: linear-gradient(135deg, var(--coordination-color), #af7ac5); color: white; } /* 협의 마커 스타일 추가 */
+
+        .timeline-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .timeline-card.expanded {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .timeline-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .timeline-summary {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .timeline-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .category-회의 { background: var(--primary-color); }
+        .category-미팅 { background: var(--warning-color); }
+        .category-공지 { background: var(--accent-color); }
+        .category-조사 { background: var(--success-color); }
+        .category-협의 { background: var(--coordination-color); } /* 협의 카테고리 스타일 추가 */
+        
+        .toggle-icon {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .timeline-card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .timeline-content {
+            display: none;
+            padding: 25px;
+            background: white;
+        }
+
+        .timeline-content.expanded {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+
+        .content-section {
+            margin-bottom: 20px;
+        }
+
+        .content-section h4 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .content-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-section li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            color: #555;
+        }
+
+        .participants {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .participant {
+            background: linear-gradient(135deg, var(--primary-color), #5dade2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .next-action {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .next-action h5 {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .next-action p {
+            color: #856404;
+            margin: 0;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-marker {
+                left: 4px;
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .timeline-header {
+                padding: 15px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="back-btn">
+                ← 홈으로 돌아가기
+            </a>
+            <h1>📅 활동 타임라인</h1>
+            <p>재건축 추진 과정의 모든 활동을 시간순으로 확인하세요</p>
+        </header>
+
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="활동 검색...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">전체</button>
+                <button class="filter-btn" data-category="회의">회의</button>
+                <button class="filter-btn" data-category="미팅">미팅</button>
+                <button class="filter-btn" data-category="협의">협의</button>
+                <button class="filter-btn" data-category="공지">공지</button>
+                <button class="filter-btn" data-category="조사">조사</button>
+            </div>
+        </div>
+
+        <div id="loading" class="no-results" style="display: none;">
+            📅 타임라인을 불러오는 중...
+        </div>
+
+        <div class="timeline" id="timeline">
+            </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <h3>😔 검색 결과가 없습니다</h3>
+            <p>다른 키워드로 검색해보시거나 필터를 변경해보세요.</p>
+        </div>
+
+        <footer class="footer">
+            <p><strong>광장현대 5단지 재건축 추진준비위원회</strong></p>
+            <p>궁금한 사항은 카카오톡 단톡방에서 문의해주세요</p>
+            <a href="https://open.kakao.com/o/gmh0czHh" target="_blank" 
+                style="display: inline-block; background: #FEE500; color: #3C1E1E; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 15px;">
+                💬 카카오톡 단톡방 참여하기
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        class TimelineManager {
+            constructor() {
+                this.allItems = [];
+                this.filteredItems = [];
+                this.currentCategory = 'all';
+                this.searchQuery = '';
+                
+                this.init();
+            }
+
+            async init() {
+                await this.loadTimeline();
+                this.setupEventListeners();
+                this.renderTimeline();
+            }
+
+            async loadTimeline() {
+                const loadingEl = document.getElementById('loading');
+                loadingEl.style.display = 'block';
+
+                try {
+                    // 캐시 방지를 위한 타임스탬프 추가
+                    const timestamp = new Date().getTime();
+                    const response = await fetch(`data/timeline.json?t=${timestamp}`);
+                    if (!response.ok) {
+                        throw new Error('타임라인 데이터를 불러올 수 없습니다.');
+                    }
+                    
+                    this.allItems = await response.json();
+                    
+                    // 🔥 핵심 수정: 날짜순 정렬 추가 (최신순)
+                    this.allItems.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    this.filteredItems = [...this.allItems];
+                    
+                    console.log('타임라인 데이터 로드 완료:', this.allItems.length, '개 항목');
+                    
+                } catch (error) {
+                    console.error('Error loading timeline:', error);
+                    
+                    // JSON 파일이 없을 경우 샘플 데이터 사용 (기존 코드 유지)
+                    this.allItems = [
+                        {
+                            id: "timeline-001",
+                            date: "2025-07-30",
+                            title: "재건축 추진준비위원회 위원 모집 공고",
+                            category: "공지",
+                            summary: "광장현대 5단지 재건축 추진준비위원회 위원을 모집합니다.",
+                            description: "재건축에 관심 있는 주민들의 참여를 위한 위원 모집 공고를 게시했습니다.",
+                            details: [
+                                "모집 기간: 2025년 8월 1일 ~ 8월 15일",
+                                "모집 대상: 광장현대 5단지 소유자",
+                                "지원 방법: 휴대폰 문자"
+                            ],
+                            participants: ["김홍범"],
+                            nextAction: "위원 모집 완료 후 공식 준비위원회 구성",
+                            icon: "📢"
+                        }
+                    ];
+                    this.filteredItems = [...this.allItems];
+                } finally {
+                    loadingEl.style.display = 'none';
+                }
+            }
+
+            setupEventListeners() {
+                // 검색 기능
+                const searchInput = document.getElementById('searchInput');
+                searchInput.addEventListener('input', (e) => {
+                    this.searchQuery = e.target.value.toLowerCase();
+                    this.applyFilters();
+                });
+
+                // 카테고리 필터
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        
+                        this.currentCategory = e.target.dataset.category;
+                        this.applyFilters();
+                    });
+                });
+            }
+
+            applyFilters() {
+                this.filteredItems = this.allItems.filter(item => {
+                    const categoryMatch = this.currentCategory === 'all' || 
+                                        item.category === this.currentCategory;
+                    
+                    const searchMatch = this.searchQuery === '' ||
+                                        item.title.toLowerCase().includes(this.searchQuery) ||
+                                        item.summary.toLowerCase().includes(this.searchQuery) ||
+                                        item.description.toLowerCase().includes(this.searchQuery);
+                    
+                    return categoryMatch && searchMatch;
+                });
+
+                // 🔥 필터링 후에도 날짜순 정렬 유지
+                this.filteredItems.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                this.renderTimeline();
+            }
+
+            renderTimeline() {
+                const timeline = document.getElementById('timeline');
+                const noResults = document.getElementById('noResults');
+                
+                if (this.filteredItems.length === 0) {
+                    timeline.innerHTML = '';
+                    noResults.style.display = 'block';
+                    return;
+                }
+
+                noResults.style.display = 'none';
+
+                timeline.innerHTML = this.filteredItems.map(item => this.createTimelineItemHTML(item)).join('');
+
+                // 토글 이벤트 추가
+                const timelineCards = timeline.querySelectorAll('.timeline-card');
+                timelineCards.forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        const content = card.querySelector('.timeline-content');
+                        const isExpanded = card.classList.contains('expanded');
+                        
+                        // 다른 카드들 닫기
+                        timelineCards.forEach(otherCard => {
+                            if (otherCard !== card) {
+                                otherCard.classList.remove('expanded');
+                                otherCard.querySelector('.timeline-content').classList.remove('expanded');
+                            }
+                        });
+                        
+                        // 현재 카드 토글
+                        if (isExpanded) {
+                            card.classList.remove('expanded');
+                            content.classList.remove('expanded');
+                        } else {
+                            card.classList.add('expanded');
+                            content.classList.add('expanded');
+                        }
+                    });
+                });
+            }
+
+            createTimelineItemHTML(item) {
+                const formattedDate = this.formatDate(item.date);
+                const detailsList = item.details ? item.details.map(detail => `<li>${detail}</li>`).join('') : '';
+                const participantsList = item.participants ? item.participants.map(p => `<span class="participant">${p}</span>`).join('') : '';
+                
+                return `
+                    <div class="timeline-item">
+                        <div class="timeline-marker ${item.category}">
+                            ${item.icon}
+                        </div>
+                        <div class="timeline-card">
+                            <div class="timeline-header">
+                                <div class="timeline-category category-${item.category}">${item.category}</div>
+                                <div class="timeline-date">${formattedDate}</div>
+                                <h3 class="timeline-title">${item.title}</h3>
+                                <p class="timeline-summary">${item.summary}</p>
+                                <div class="toggle-icon">▼</div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="content-section">
+                                    <h4>📝 상세 내용</h4>
+                                    <p>${item.description}</p>
+                                </div>
+                                
+                                ${item.details && item.details.length > 0 ? `
+                                <div class="content-section">
+                                    <h4>📋 주요 논의사항</h4>
+                                    <ul>${detailsList}</ul>
+                                </div>
+                                ` : ''}
+                                
+                                <div class="content-section">
+                                    <h4>👥 참석자</h4>
+                                    <div class="participants">${participantsList}</div>
+                                </div>
+                                
+                                ${item.location ? `
+                                <div class="content-section">
+                                    <h4>📍 장소</h4>
+                                    <p>${item.location}</p>
+                                </div>
+                                ` : ''}
+                                
+                                ${item.nextAction ? `
+                                <div class="next-action">
+                                    <h5>🎯 다음 단계</h5>
+                                    <p>${item.nextAction}</p>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'short'
+                });
+            }
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            new TimelineManager();
+        });
+    </script>
+</body>
+</html>
