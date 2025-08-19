@@ -1,0 +1,32 @@
+[
+  {
+    "id": "progress-001",
+    "label": "임시 추진준비위원회 구성",
+    "status": "complete",
+    "order": 1,
+    "completedDate": "2025-07-19",
+    "description": "재건축에 관심 있는 주민들로 임시 준비위원회를 구성했습니다."
+  },
+  {
+    "id": "progress-002", 
+    "label": "추진준비위원 모집",
+    "status": "complete",
+    "order": 2,
+    "startDate": "2025-08-01",
+    "description": "정식 추진준비위원회 위원을 모집하고 있습니다."
+  },
+  {
+    "id": "progress-003",
+    "label": "구청의 정비사업 담당자 미팅",
+    "status": "complete",
+    "order": 3,
+    "description": "구청의 정비사업 담당자와 미팅을 진행했습니다."
+  },
+  {
+    "id": "progress-004",
+    "label": "도시계획업체들과의 사전 미팅",
+    "status": "progress", 
+    "order": 4,
+    "description": "도시계획업체들과의 사전 미팅을 진행할 예정입니다."
+  }
+]

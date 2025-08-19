@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재건축 추진준비위원회 위원 모집 공고</title>
+    
+    <!-- 👇 여기에 카드뉴스 메타태그들을 추가 -->
+    <meta name="card-title" content="재건축 추진준비위원회 위원 모집 공고">
+    <meta name="card-description" content="광장현대 5단지 재건축 추진준비위원회 위원을 모집합니다">
+    <meta name="card-date" content="2025-07-30">
+    <meta name="card-category" content="공지사항">
+    <!-- 👆 여기까지 -->
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+        
+        .card-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.3;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            background: #f8f9fa;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            font-size: 15px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+            font-size: 15px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #3498db;
+            margin-right: 10px;
+            min-width: 60px;
+        }
+        
+        .phase-box {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .big-number {
+            font-size: 80px;
+            font-weight: bold;
+            color: #3498db;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .date-box {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .emoji {
+            font-size: 60px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .cta {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 20px 0;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .nav-btn.active {
+            background: #3498db;
+            color: white;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #856404;
+            font-weight: bold;
+        }
+        
+        .contact-box {
+            background: #e8f5e8;
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #155724;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <button class="nav-btn" onclick="scrollToCard(0)">공고</button>
+            <button class="nav-btn" onclick="scrollToCard(2)">모집요강</button>
+            <button class="nav-btn" onclick="scrollToCard(4)">지원방법</button>
+            <button class="nav-btn" onclick="scrollToCard(6)">참여</button>
+        </div>
+
+        <!-- 카드 1: 공고 제목 -->
+        <div class="card" id="card-0">
+            <div class="card-number">1</div>
+            <div class="emoji">📢</div>
+            <div class="title">광장현대 5단지<br>재건축 추진준비위원회<br>위원 모집 공고</div>
+            <div class="phase-box">
+                공고 제2025-0001호
+            </div>
+            <div class="content">
+                <span class="highlight">도시 및 주거환경정비법</span>에 따른<br>
+                재건축사업 추진을 위한<br>
+                추진준비위원회를 구성합니다.<br><br>
+                <strong>여러분의 참여를 기다립니다!</strong>
+            </div>
+        </div>
+
+        <!-- 카드 2: 모집 취지 -->
+        <div class="card" id="card-1">
+            <div class="card-number">2</div>
+            <div class="emoji">🏠</div>
+            <div class="title">왜 재건축을<br>추진해야 할까요?</div>
+            <div class="content">
+                재건축은 단순히 건물을 새로 짓는 것을 넘어,<br>
+                <span class="highlight">우리 모두의 삶의 질을 높이고</span><br>
+                더 나은 주거 환경을 만드는<br>
+                중요한 과정입니다.<br><br>
+                <strong>한강뷰 프리미엄</strong><br>
+                <strong>뛰어난 입지</strong><br>
+                <strong>훌륭한 교육환경</strong><br><br>
+                우리의 자산가치와 미래 가능성을<br>
+                포기하지 않기 위해 마음을 모을 때입니다.
+            </div>
+        </div>
+
+        <!-- 카드 3: 모집 기간 -->
+        <div class="card" id="card-2">
+            <div class="card-number">3</div>
+            <div class="emoji">📅</div>
+            <div class="title">모집 기간</div>
+            <div class="date-box">
+                2025년 8월 1일 (금)<br>
+                ~<br>
+                2025년 8월 15일 (금)<br>
+                18:00까지
+            </div>
+            <div class="content">
+                <span class="highlight">총 15일간</span> 모집합니다.<br><br>
+                마감 시간을 놓치지 마세요!
+            </div>
+        </div>
+
+        <!-- 카드 4: 모집 대상 -->
+        <div class="card" id="card-3">
+            <div class="card-number">4</div>
+            <div class="emoji">👥</div>
+            <div class="title">누가 지원할 수 있나요?</div>
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="info-label">대상:</div>
+                    <div>광장현대 5단지 소유자</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">조건:</div>
+                    <div>성별, 나이 불문</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">자격:</div>
+                    <div>전문 지식 불필요</div>
+                </div>
+            </div>
+            <div class="content">
+                광장현대 5단지에 거주하시며<br>
+                아파트의 미래에 관심을 가지고 계신<br>
+                <span class="highlight">소유주 분이라면 누구든 환영</span>합니다.<br><br>
+                재건축에 대한 전문 지식이<br>
+                없어도 괜찮습니다!
+            </div>
+        </div>
+
+        <!-- 카드 5: 지원 방법 -->
+        <div class="card" id="card-4">
+            <div class="card-number">5</div>
+            <div class="emoji">📱</div>
+            <div class="title">지원 방법</div>
+            <div class="contact-box">
+                휴대폰 문자 지원
+            </div>
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="info-label">연락처:</div>
+                    <div>
+                        <strong>(연락처 정보가 삭제되었습니다.)</strong>
+                        <br>
+                        <small style="color: #666; font-size: 12px;">문의는 다른 방법을 이용해주세요.</small>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">담당자:</div>
+                    <div>김홍범 추진준비위원장</div>
+                </div>
+            </div>
+            <div class="content">
+                간단하게 문자로 지원 의사를<br>
+                전달해 주시면 됩니다.<br><br>
+                <span class="highlight">지원서 작성이나<br>
+                복잡한 절차는 없습니다!</span>
+            </div>
+        </div>
+
+        <!-- 카드 6: 참여 의의 -->
+        <div class="card" id="card-5">
+            <div class="card-number">6</div>
+            <div class="emoji">💪</div>
+            <div class="title">함께 만들어갈<br>우리의 미래</div>
+            <div class="content">
+                이 중대한 변화를 성공적으로 이끌기 위해<br>
+                <span class="highlight">입주민 여러분의 적극적인 참여</span>와<br>
+                지혜를 모으고자 합니다.<br><br>
+                우리 아파트의 가치를 높이고,<br>
+                더욱 살기 좋은<br>
+                <span class="highlight">광장현대 5단지</span>를<br>
+                함께 만들어갑시다!
+            </div>
+        </div>
+
+        <!-- 카드 7: 마무리 및 참여 독려 -->
+        <div class="card" id="card-6">
+            <div class="card-number">7</div>
+            <div class="emoji">🎯</div>
+            <div class="title">지금 바로<br>참여하세요!</div>
+            <div class="content">
+                광장현대 5단지의 밝은 미래를 위해<br>
+                여러분의 <span class="highlight">많은 관심과 참여</span>를<br>
+                기다립니다.<br><br>
+                <strong>문자 한 통으로 시작되는<br>
+                우리 아파트의 변화!</strong>
+            </div>
+            <div class="warning-box" style="text-align: center;">
+                <strong>(연락처 정보가 삭제되었습니다.)</strong><br>
+                <small style="font-size: 12px;">문의는 다른 방법을 이용해주세요.</small>
+            </div>
+            <div class="cta">
+                광장동 현대 5단지 재건축사업 추진준비위원회<br>
+                함께 힘을 모아주세요!<br>
+                <a href="https://open.kakao.com/o/gmh0czHh" style="display: inline-block; background: #FEE500; color: #3C1E1E; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px;">
+                    💬 카카오톡 단톡방 참여하기
+                </a>
+                <a href="https://gjh5th.site/" style="display: inline-block; background: #3498db; color: white; padding: 12px 20px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 10px; margin-left: 10px;">
+                    🏠 홈으로 이동
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToCard(index) {
+            const card = document.getElementById(`card-${index}`);
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 네비게이션 버튼 활성화
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // 스크롤에 따른 네비게이션 업데이트
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            
+            let current = 0;
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    if (index <= 1) current = 0;
+                    else if (index <= 3) current = 1;
+                    else if (index <= 4) current = 2;
+                    else current = 3;
+                }
+            });
+            
+            navButtons.forEach((btn, index) => {
+                btn.classList.toggle('active', index === current);
+            });
+        });
+    </script>
+</body>
+</html>
